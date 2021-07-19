@@ -1,0 +1,129 @@
+.single-post
+  &--wrapper
+    display: flex
+    justify-content: space-between
+    margin-top: 50px
+    @include mobile
+      display: block
+    .content-block.one-column
+      margin: 0
+      .wrapper
+        margin: 0
+        max-width: 100%
+        width: 100%
+      // .editor-content
+      //   > * + *
+      //     margin-top: 0.2em
+    &--content
+      max-width: calc(100% - 300px)
+      width: 680px
+      @include mobile
+        max-width: 100%
+        width: 100%
+      iframe
+        margin: 25px 0 0
+  &--subtitle
+    color: $dark-blue
+    font-size: rem(32)
+    font-style: italic
+    font-weight: 500
+    margin-bottom: 13px
+  &--sidebar
+    width: 280px
+    @include mobile
+      width: 100%
+    &--block
+      background-color: $light-blue
+      padding: 28px
+      margin-bottom: 30px
+      // &:not(:last-of-type)
+        // margin-bottom: 30px
+    &--title
+      color: $dark-blue
+      font-size: rem(22)
+      margin-bottom: 22px
+      &:after
+        background-color: $medium-blue
+        content: ''
+        display: block
+        height: 1px
+        margin-top: 5px
+        width: 80px
+  .post-tags.wrapper
+    max-width: 100%
+  .share-button--links,
+  .listen-button--links
+    justify-content: space-around
+  &--related
+    ul
+      li
+        font-size: rem(18)
+        font-weight: 500
+        line-height: 1.5
+        &:not(:last-of-type)
+          margin-bottom: 5px
+
+
+.tweet-this
+  color: $dark-blue
+  display: block
+  font-family: $font-accent
+  font-style: italic
+  font-size: rem(28)
+  font-weight: 500
+  position: relative
+  text-decoration: none
+  @include mobile
+    font-size: rem(24)    
+  &:hover
+    svg
+      @include desktop-only
+        color: $dark-blue
+    .tweet-this--bird-button
+      transform: translateX(0)
+      svg
+        color: white !important
+  &--quote    
+    background-color: $light-blue
+    color: $dark-blue !important
+    padding: 34px
+    position: relative
+    z-index: 2
+  &--desktop-button
+    position: absolute
+    top: 7px
+    right: 15px
+    z-index: 2
+    @include mobile
+      display: none
+    svg
+      color: $aqua
+      transition: 150ms all
+      width: 17px
+  &--bird-button
+    @extend .button
+    background-color: $aqua
+    border-radius: 0
+    color: white
+    font-style: normal
+    padding: 16px 30px
+    text-align: center
+    transition: 250ms
+    width: 100%
+    @include desktop-only
+      height: 100%
+      padding: 25px 10px
+      position: absolute
+      left: 100%
+      top: 0
+      transform: translateX(-100%)
+      width: 140px
+      z-index: 1
+    &:hover
+      background-color: lighten($aqua, 10%)
+    svg
+      margin-right: 10px
+      @include desktop-only
+        display: block
+        margin: 0 auto 20px
+        transform: scale(1.4)

@@ -1,0 +1,53 @@
+.post-listing--featured-post
+  .wrapper
+    display: flex
+    justify-content: space-between
+    align-items: center
+    flex-wrap: wrap
+    @include mobile
+      flex-flow: column
+      max-width: 100%
+  &--section-title
+    color: $dark-blue
+    font-size: rem(30)
+    line-height: 1.167
+    margin-bottom: 19px
+    &:after
+      content: ''
+      display: block
+      background-color: $medium-blue
+      height: 1px
+      margin-top: 10px
+      width: 60px
+  &--content
+    padding: 62px 0
+    width: 50%
+    @include mobile
+      padding: 38px
+      width: 100%
+      order: 2
+  &--title
+    display: block
+    line-height: 1.2
+    font-size: 1.625rem
+    margin-top: 21px
+    text-decoration: none
+  &--read-more
+    margin-top: 20px
+  &--image
+    height: 100%
+    position: absolute
+    top: 0
+    left: 59%
+    width: 41.5%
+    @include mobile
+      // height: 160px
+      position: static
+      width: 100%
+      order: 1
+    picture
+      display: block
+      height: 100%
+    img
+      height: 100%
+      width: 100%

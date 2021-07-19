@@ -1,0 +1,38 @@
+.case-study
+  display: flex
+  @include mobile
+    flex-flow: column
+  &--image--right
+    picture
+      order: 2
+      @include mobile
+       order: 1
+    .case-study--content
+      order: 1
+  &--image
+    // height: 100% do this with JS
+  &--content
+    color: $white
+    background: var(--case-study-color)
+    width: 480px
+    @include mobile
+      width: 100%
+      padding: 29px 26px
+      .button
+        width: 100%
+  &--subtitle
+    // font-size: rem(20)
+    letter-spacing: 0.1em
+    font-weight: 500
+    @include mobile
+      font-size: rem(13)
+  &--title
+    font-weight: 400
+    line-height: 1.15
+    margin-top: 9px
+    @include mobile
+      font-size: rem(30)
+  &--copy
+    margin: 15px 0 29px
+    font-size: 18px
+    line-height: 1.4

@@ -1,0 +1,236 @@
+.hero-inner
+  position: relative
+  padding: 63px 0
+  display: flex
+  flex-flow: column
+  overflow: hidden
+  @include mobile
+    padding-top: 0
+    padding-bottom: 0
+  &:before
+    content: ''
+    display: block
+    background: linear-gradient(90deg, var(--color) 30%, transparent)
+    @extend %fill-parent
+    z-index: 2
+    @include mobile
+      background: linear-gradient(11deg, var(--mobile-color) 30%, transparent)
+  .standalone-image-wrapper
+    position: absolute
+    top: 0
+    left: 50%
+    width: 100%
+    height: 100%
+    transform: translateX(-50%)
+    display: flex
+    padding-left: 50%
+    picture, img
+      max-width: 100%
+      max-height: 100%
+      object-fit: contain
+    @include mobile
+      display: none
+  &--background-image
+    @extend %fill-parent
+    z-index: 1
+    &.half-fill
+      margin-left: 50%
+      width: 50%
+      @include screenQuery(980)
+        margin-left: 65%
+        width: 35%
+  &--content
+    position: relative
+    z-index: 3
+    @include mobile
+      padding: 30px 0 80px
+      &:not(.custom-background-color)
+        color: $white
+        background: $dark-blue
+        h1
+          color: $white
+    a,
+    .editor-content a
+      color: inherit !important
+    &.standalone-image .wrapper
+      display: flex
+      align-items: center
+      position: relative
+      .editor-content
+        width: 50%
+        @include mobile
+          width: 100%
+      & > picture
+        width: 50%
+        position: absolute
+        right: 0
+  &--pretitle
+    // font-size: rem(20)
+    // line-height: 1.2
+    // font-weight: 700
+    font-family: $font-main
+    text-transform: uppercase
+    letter-spacing: 0.1em
+    font-weight: 500
+    @include mobile
+      font-size: rem(16)
+  &--title
+    font-size: rem(50)
+    font-weight: 500
+    line-height: 1.12
+    margin-top: 14px
+    .text-white &
+      color: $white
+    @include mobile
+      font-size: rem(40)
+      margin-top: 21px
+  .editor-content 
+    max-width: 480px
+    @include mobile
+      max-width: none
+    p
+      font-size: rem(18)
+      line-height: 1.35
+      &:first-of-type
+        @include mobile
+          margin-top: 26px
+
+  //variation
+  &--mobile--fill-image
+    @include mobile
+      padding: 160px 0 0
+    // &:before
+    //   content: ''
+    //   display: none
+    //   background: linear-gradient(11deg, $dark-blue 30%, transparent)
+    //   @extend %fill-parent
+    //   z-index: 2
+    //   @include mobile
+    //     display: block
+    .hero-inner--background-image--mobile //already mobile only
+      @extend %fill-parent
+      z-index: 1
+    .hero-inner--content
+      @include mobile
+        background: transparent
+
+//special case for case studies!
+.single-case_studies .hero-inner
+  padding-top: 160px
+
+// .hero-inner
+//   position: relative
+//   padding: 63px 0 88px
+//   &.regular-image,
+//   &.animated-image
+//     @include mobile
+//       padding: 0
+//     picture
+//       display: block
+//     *
+//       color: $dark-blue
+//     .hero-inner--background
+//       @include mobile
+//         height: 230px
+//         position: relative
+//     .editor-content
+//       @include mobile
+//         background: none
+//         padding: 46px 20px 25px
+//         max-width: 100%
+//         width: 100% !important
+//       *
+//         @include mobile
+//           color: white
+//   &.animated-image
+//     background: $medium-light-blue
+//     @include mobile
+//       background: $dark-blue
+//     .editor-content
+//       background: $medium-light-blue //save as background to account for when text is over the image and it is hard to read. TBD if this is what the client wants
+
+//   &.regular-image
+//     .editor-content
+//       *
+//         color: white
+//   &.fade-image
+//     padding: 172px 0 54px
+//     @include mobile
+//       padding: 140px 0 27px
+//     *
+//       color: white
+//   &--overlay
+//     height: 100%
+//     position: absolute
+//     top: 0
+//     left: 0
+//     width: 100%
+//     z-index: 2
+//     &.purple
+//       background: linear-gradient(90deg, rgba($purple,1) 0%, rgba($purple,0.896796218487395) 29%, rgba(255,255,255,0) 100%)
+//       @include mobile
+//         background: linear-gradient(59deg, rgba($purple,1) 0%, rgba($purple,0.896796218487395) 57%, rgba($purple,0) 100%)
+//     &.dark-blue
+//       background: linear-gradient(90deg, rgba($dark-blue,1) 0%, rgba($dark-blue,0.896796218487395) 29%, rgba(255,255,255,0) 100%)
+//       @include mobile
+//         background: linear-gradient(59deg, rgba($dark-blue,1) 0%, rgba($dark-blue,0.896796218487395) 57%, rgba($dark-blue,0) 100%)
+//     &.sky-blue
+//       background: linear-gradient(90deg, rgba($sky-blue,1) 0%, rgba($sky-blue,0.896796218487395) 29%, rgba(255,255,255,0) 100%)
+//       @include mobile
+//         background: linear-gradient(59deg, rgba($sky-blue,1) 0%, rgba($sky-blue,0.896796218487395) 57%, rgba($sky-blue,0) 100%)
+//     &.teal
+//       background: linear-gradient(90deg, rgba($teal,1) 0%, rgba($teal,0.896796218487395) 29%, rgba(255,255,255,0) 100%)
+//       @include mobile
+//         background: linear-gradient(59deg, rgba($teal,1) 0%, rgba($teal,0.896796218487395) 57%, rgba($teal,0) 100%)
+//     &.green
+//       background: linear-gradient(90deg, rgba($green,1) 0%, rgba($green,0.896796218487395) 29%, rgba(255,255,255,0) 100%)
+//       @include mobile
+//         background: linear-gradient(59deg, rgba($green,1) 0%, rgba($green,0.896796218487395) 57%, rgba($green,0) 100%)
+//     &.red
+//       background: linear-gradient(90deg, rgba($red,1) 0%, rgba($red,0.896796218487395) 29%, rgba(255,255,255,0) 100%)
+//       @include mobile
+//         background: linear-gradient(59deg, rgba($red,1) 0%, rgba($red,0.896796218487395) 57%, rgba($red,0) 100%)
+//   .wrapper
+//     z-index: 3
+//   h1
+//     font-size: rem(20)
+//     line-height: 1.2
+//     font-weight: 700
+//     font-family: $font-main
+//     text-transform: uppercase
+//     @include mobile
+//       font-size: rem(16)
+//   p
+//     font-size: rem(18)
+//     line-height: 1.35
+//     &:first-of-type
+//       @include mobile
+//         margin-top: 26px
+//   &--large-text
+//     font-size: rem(50)
+//     font-weight: 500
+//     line-height: 1.12
+//     margin-top: 14px
+//     @include mobile
+//       font-size: rem(40)
+//       margin-top: 21px
+//   .button
+//     margin-top: 28px
+//     @include mobile
+//       width: 100%
+//   .editor-content
+//     max-width: 100%
+//     @include mobile
+//       width: 100% !important
+//   &--background
+//     @extend %fill-parent
+//     z-index: 1
+//     picture
+//       display: block
+//     &.mobile
+//       display: none
+//       @include mobile
+//         display: block
+//     &.desktop
+//       @include mobile
+//         display: none

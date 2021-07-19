@@ -1,0 +1,38 @@
+.droplet-graph
+  margin: 75px 0
+  .wrapper  
+    padding: 0 50px
+    @include mobile
+      padding: 0
+  &--container
+    margin-top: 28px
+    @include mobile
+      flex-wrap: wrap
+  &--droplet-container
+    margin-top: 20px
+  &--droplet
+    width: 94px
+    height: 180px
+    clip-path: url(#drop-shape)
+    padding-bottom: 16px
+    position: relative
+  &--label
+    color: $dark-blue
+    font-size: rem(12)
+    margin-top: 30px
+    text-transform: uppercase
+  &--fill
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    z-index: 1
+  &--number
+    font-size: rem(20)
+    font-weight: 700
+    position: relative
+    z-index: 1
+  &--unit-type
+    position: relative
+    text-transform: uppercase
+    z-index: 1

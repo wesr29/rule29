@@ -1,0 +1,145 @@
+@function rem($px)
+  // strips px unit to return only the value
+  $pxVal : $px / ($px * 0 + 1)
+  @return #{($pxVal / 16)}rem
+
+@mixin desktop-only
+  @media (min-width:rem($mobile-switch))
+    @content
+
+@mixin medium
+  @media (max-width:rem($medium-switch))
+    @content
+
+@mixin mobile
+  @media (max-width:rem($mobile-switch))
+    @content
+
+@mixin phone
+  @media (max-width:rem($phone-switch))
+    @content
+
+@mixin screenQuery($size)
+  @media (max-width:rem($size))
+    @content
+
+@mixin IEFix()
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+    /* IE10+ CSS */
+    @content
+
+@mixin flexWidth($percent) 
+  max-width: $percent
+  flex-basis: $percent
+  width: $percent
+
+%fill-parent
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+@mixin colGap ($width) 
+  margin: 0 -#{$width/2}px
+  .col 
+    padding: 0  #{$width/2}px
+
+@mixin circle($diameter) 
+  width: #{$diameter}px
+  height: #{$diameter}px
+  border-radius: #{$diameter/2}px
+
+
+// @include chevron(prev, 30, 3, blue)
+@mixin chevron($direction, $size, $border-width, $color)
+  width: #{$size}px
+  height: #{$size}px
+  border-left: #{$border-width}px solid $color
+  border-bottom: #{$border-width}px solid $color
+  display: inline-block
+  @if $direction == prev
+    transform: rotate(45deg)
+  @else
+    transform: rotate(-135deg)
+
+//creates .bg-{color} and .text-{color} classes
+@mixin backgroundAndTextColor($name, $value)
+  .bg-#{$name}
+    background: $value
+  .text-#{$name}
+    color: $value
+
+// @include fluid-text(24, 100)
+@mixin fluid-text($font-min, $font-max, $viewport-min: 320,  $viewport-max: 1200)
+
+  // Fluidly changes font size based on viewport width within defined parameters.
+  // Pixel sizes defined, mixin converts to REMs and rEMs where needed.
+  //
+  // @param  $font-min     Minimum font size. Calculations will stop at this font size.
+  // @param  $viewport-min Minimum viewport size.
+  //                       (Where font size calculations stop and min font size is used.)
+  // @param  $font-max     Maximum font size. Calculations will start at this font size.
+  // @param  $viewport-max Maximum viewport size.
+  //                       (Where font size calculations start and max font size is no longer used.)
+
+  $vmin-val  : ($viewport-min / ($viewport-min * 0 + 1)) / 16
+  $vmax-val  : ($viewport-max / ($viewport-max * 0 + 1)) / 16
+  $fmin-val  : ($font-min / ($font-min * 0 + 1)) / 16
+  $fmax-val  : ($font-max / ($font-max * 0 + 1)) / 16
+
+  font-size: rem($font-min)
+
+  @media (min-width: rem($viewport-min)) and (max-width: rem($viewport-max))
+    font-size: calc(#{rem($font-min)} + (#{$fmax-val} - #{$fmin-val}) * (100vw - #{rem($viewport-min)}) / (#{$vmax-val} - #{$vmin-val}))
+
+  @media (min-width: rem($viewport-max)) 
+    font-size: rem($font-max)
+
+@mixin iziControls
+    position: absolute
+    left: 0
+    top: 38%
+    width: 100%
+    .izi-slider--controls--prev,
+    .izi-slider--controls--next
+      border: 3px solid $medium-light-blue
+      border-radius: 50%
+      color: transparent
+      display: block
+      height: 39px
+      position: absolute
+      width: 39px
+      transition: 250ms
+      @include mobile
+        height: 31px
+        width: 31px
+      &:hover,
+      &:focus
+        border-color: $dark-blue
+        &:after
+          border-color: $dark-blue
+    .izi-slider--controls--prev
+      left: 0
+      &:after
+        transition: 250ms      
+        content: ''
+        @include chevron(prev, 10, 3, $medium-light-blue)
+        position: absolute
+        top: 10px
+        left: 13px
+        @include mobile
+          top: 6px
+          left: 9px
+    .izi-slider--controls--next
+      right: 0
+      &:after
+        transition: 250ms
+        content: ''
+        @include chevron(next, 10, 3, $medium-light-blue)
+        position: absolute
+        top: 11px
+        right: 12px
+        @include mobile
+          top: 6px
+          right: 8px

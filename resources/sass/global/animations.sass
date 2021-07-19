@@ -1,0 +1,73 @@
+// --- scrollout fancy animation
+.animate-on-scroll
+  opacity: calc(var(--visible-y) * var(--visible-y))
+  transform: translateY(var(--translate-y))
+  // @include mobile
+  //   opacity: 1
+  //   transform: none
+
+$animation-duration: 1s
+
+.will-animate
+  opacity: 0
+  transition: opacity $animation-duration ease-in-out
+
+// ----
+
+.fade-from-bottom
+  opacity: 1
+  animation: fade-from-bottom $animation-duration ease-in-out forwards
+
+.fade-from-top
+  opacity: 1
+  animation: fade-from-top $animation-duration ease-in-out forwards
+
+.fade-from-right
+  opacity: 1
+  animation: fade-from-right $animation-duration ease-in-out forwards
+
+.fade-from-left
+  opacity: 1
+  animation: fade-from-left $animation-duration ease-in-out forwards
+
+.scale-in
+  opacity: 1
+  animation: scale-in $animation-duration ease-in-out forwards
+
+.parallax
+  transform: translateY(calc(var(--viewport-y) * 30%))
+  transition: transform 150ms 
+  &.hero--background
+    transform: translateY(Max(calc(var(--viewport-y) * 30%), -1px))
+  
+// ---
+
+@keyframes fade-from-bottom
+  0%
+    transform: translateY(100px)
+  100%
+    transform: translateY(0)
+
+@keyframes fade-from-top
+  0%
+    transform: translateY(-100px)
+  100%
+    transform: translateY(0)
+
+@keyframes fade-from-right
+  0%
+    transform: translateX(100px)
+  100%
+    transform: translateX(0)
+
+@keyframes fade-from-left
+  from
+    transform: translateX(-100px)
+  to
+    transform: translateX(0)
+
+@keyframes scale-in
+  0%
+    transform: scale(0.5)
+  100%
+    transform: scale(1)

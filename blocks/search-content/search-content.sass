@@ -1,0 +1,90 @@
+.search-content
+  &--highlight
+    background-color: $medium-light-blue
+
+.search
+  .alm-reveal
+    margin-top: 60px
+    .search--post:first-of-type
+      &:before
+        content: ''
+        position: absolute
+        top: -30px
+        display: block
+        width: 80px
+        height: 3px
+        background: $medium-blue
+        left: 0
+  .alm-load-more-btn:disabled
+    display: none
+  &--wrapper
+    margin-top: 77px
+    margin-bottom: 56px
+    width: 780px
+    .alm-btn-wrap .alm-load-more-btn
+      @extend .button
+      @extend .button--dark-blue
+      background-color: $dark-blue !important
+      margin-top: 45px
+      max-width: 100%
+      width: 381px
+      &:hover
+        background: $medium-blue !important
+      &.loading:before
+        display: block
+        width: 20px
+        height: 20px
+        border-top: 2px solid white
+        border-bottom: 2px solid white
+        border-radius: 50%
+        animation: alm-rotate 1.2s linear infinite
+        background: transparent
+        border-right: 2px solid transparent
+        border-left: 2px solid transparent
+        top: 3px
+        left: 5px
+  &--title
+    color: $dark-blue
+    font-size: rem(30)
+    position: relative
+    margin-bottom: 59px
+    &:after
+      content: ''
+      position: absolute
+      top: calc(100% + 28px)
+      display: block
+      width: 180px
+      height: 2px
+      background: $medium-blue
+      left: 0
+  &--post
+    & + .search--post
+      margin-top: 60px
+    position: relative
+    &:after
+      content: ''
+      position: absolute
+      top: calc(100% + 30px)
+      display: block
+      width: 80px
+      height: 2px
+      background: $medium-blue
+      left: 0
+    &:last-of-type:after
+      display: none
+    &--title
+      color: $dark-blue
+      font-size: rem(26)
+      font-weight: 500
+      margin-top: 3px
+      a
+        text-decoration: none
+    &--excerpt
+      font-size: rem(18)
+
+@keyframes alm-rotate
+  0% 
+    transform: rotate(0deg)
+  100% 
+   
+    transform: rotate(360deg)

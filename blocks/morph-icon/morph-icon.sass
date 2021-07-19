@@ -1,0 +1,22 @@
+.morph-icon
+  position: relative
+  display: inline-block
+  &--hover:hover .morph-icon--circle
+    transform: translate(-50%, -50%)
+    width: 90%
+    height: 90%
+    border-radius: 50% !important
+  &--circle
+    position: absolute
+    top: 50%
+    left: 50%
+    width: 80%
+    height: 80%
+    border-radius: 50%
+    transform: translate(-30%, -30%)
+    z-index: 1
+    transition: 350ms ease-out
+    background: $medium-light-blue
+  svg
+    position: relative
+    z-index: 2

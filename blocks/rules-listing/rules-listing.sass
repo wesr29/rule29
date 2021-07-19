@@ -1,0 +1,80 @@
+.rules
+  margin: 70px 0
+  @include mobile
+    margin: 40px 0
+  .row
+    @include colGap(20)
+  .col
+    margin-bottom: 20px
+.rule
+  color: white
+  display: flex
+  // align-items: center
+  // justify-content: center
+  flex-direction: column
+  height: 163px
+  padding: 24px 30px
+  position: relative
+  text-decoration: none
+  width: 100%
+  &:hover
+    color: white
+    .rule--hover-bg
+      opacity: 0.8
+    &:after
+      opacity: 0
+    *
+      color: white
+    .rule--number
+      font-size: rem(40)
+      position: relative
+      transform: none
+      &:after
+        width: 80px
+    .rule--title
+      opacity: 1
+      transform: translateY(0)
+  &:after
+    background: rgba($dark-blue, 0.7)
+    content: ''
+    display: block
+    @extend %fill-parent
+    transition: 250ms all
+    z-index: 1
+  &--hover-bg
+    opacity: 0
+    @extend %fill-parent
+    transition: 250ms all
+    z-index: 2
+  &--image
+    @extend %fill-parent
+    z-index: 1
+  &--number
+    font-size: rem(60)
+    transition: 250ms all
+    z-index: 2
+    line-height: 1
+    position: relative
+    transform: translateY(32px)
+    &:after
+      content: ''
+      display: block
+      background: white
+      border: 0
+      height: 1px
+      position: absolute
+      transition: 250ms
+      width: 0
+      z-index: 2
+      left: 50%
+      transform: translateX(-50%)
+      bottom: -9px
+  &--title
+    opacity: 0
+    font-size: rem(22)
+    line-height: 1.09
+    margin-top: 26px
+    position: relative
+    transition: 250ms all
+    transform: translateY(100%)
+    z-index: 2

@@ -1,0 +1,101 @@
+$width : 320px
+.donut-graph
+  margin: 80px 0 50px
+  .wrapper
+    padding: 47px 50px
+    @include mobile
+      padding: 25px 30px
+  &--container
+    padding-left: 83px
+    @include medium
+      margin-top: 50px
+      padding-left: 0
+    @include mobile
+      display: flex
+      flex-flow: column
+  &--legend
+    font-size: rem(22)
+    font-weight: 500
+    padding-bottom: 23px
+    @include mobile
+      order: 2
+      margin: 2em auto
+  &--entry-icon
+    width: 30px
+    height: 30px
+    border-radius: 50%
+    background: $medium-dark-blue
+    &-1
+      background: $bluegreen
+  &--graph
+    position: relative
+    background: $medium-dark-blue
+    width: $width
+    height: $width
+    border-radius: 50%
+    @include mobile
+      margin: 0 auto
+      order: 1
+    @include screenQuery(640)
+      width: 200px
+      height: 200px
+    &:before
+      content: '' 
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      position: absolute
+      width: 50%
+      height: 50%
+      background: $light-blue
+      border-radius: 50%
+      z-index: 2
+  &--value
+    position: absolute
+    border-radius: 50%
+    width: 70px
+    height: 70px
+    background: $medium-dark-blue
+    color: $white
+    border: 3px solid $white
+    top: 50%
+    left: 0
+    transform: translate(-50%, -50%)
+    display: flex
+    align-items: center
+    justify-content: center
+    font-size: rem(22)
+    @include screenQuery(640)
+      width: 50px
+      height: 50px
+      font-size: rem(18)
+    &-1
+      background: $bluegreen  
+      top: 4%
+      left: 70%
+  &--slice
+    position: absolute
+    width: $width
+    height: $width
+    border-radius: $width / 2
+    clip: rect(0px, $width, $width, $width / 2)
+    @include screenQuery(640)
+      width: 200px
+      height: 200px
+      border-radius: 100px
+      clip: rect(0px, 200px, 200px, 100px)
+    &--inner
+      transition: all 1s
+      position: absolute
+      width: $width
+      height: $width
+      border-radius: $width / 2
+      clip: rect(0px, $width / 2, $width, 0px) 
+      transform: rotate(var(--rotation))
+      @include screenQuery(640)      
+        width: 200px
+        height: 200px
+        border-radius: 100px
+        clip: rect(0px, 100px, 200px, 0px)
+    &:nth-of-type(1) .donut-graph--slice--inner
+      background: radial-gradient(transparent, $bluegreen 70%)

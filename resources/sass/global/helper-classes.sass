@@ -1,0 +1,144 @@
+.font-accent
+  font-family: $font-accent
+
+//layout
+.block-section
+  padding: 100px 0
+
+.wrapper
+  width: $wrapper-width 
+  max-width: calc(100% - 40px)
+  margin: 0 auto
+
+//show/hide helpers
+.desktop-only
+  @include mobile
+    display: none !important
+
+.mobile-only
+  @media(min-width:rem($mobile-switch + 1px))
+    display: none !important
+
+.hidden,
+.sr-only
+  position: absolute
+  height: 1px
+  width: 1px
+  overflow: hidden
+  left: -9999px
+  opacity: 0
+
+//column helpers
+.col-xxs-12 //an extra class for when an xs col isn't small enough
+  @include screenQuery(580)
+    flex-basis: 100% !important
+    max-width: 100% !important
+
+//float helpers
+.float-left
+  float: left
+.float-right
+  float: right
+.clearfix
+  clear: both
+
+// display helpers
+.block  
+  display: block 
+.inline-block  
+  display: inline-block 
+.display-none
+  display: none
+
+// flex helpers
+.flex
+  display: flex
+.inline-flex
+  display: inline-flex
+.space-between
+  justify-content: space-between
+.space-around
+  justify-content: space-around
+.align-center
+  align-items: center
+.justify-center
+  justify-content: center
+.justify-end
+  justify-content: flex-end
+.flex-column 
+  flex-direction: column
+.flex-wrap
+  flex-wrap: wrap
+.align-start
+  align-items: flex-start
+.align-end
+  align-items: flex-end
+
+
+//text helper classes
+.uppercase
+  text-transform: uppercase
+.capitalize
+  text-transform: capitalize
+.text-center
+  text-align: center
+.text-right
+  text-align: right
+.text-left
+  text-align: left
+
+//misc
+.no-click
+  pointer-events: none
+.no-wrap
+  white-space: nowrap
+
+// position 
+.absolute
+  position: absolute
+.relative
+  position: relative
+
+.custom-padding
+  padding-top: var(--desktop-padding-top) !important
+  padding-bottom: var(--desktop-padding-bottom) !important
+  @include mobile
+    padding-top: var(--mobile-padding-top) !important
+    padding-bottom: var(--mobile-padding-bottom) !important
+
+//margin and padding helper classes
+$max: 100
+$step: 5
+@for $i from 1 through (ceil($max/$step) + $step)
+  $value: ($i - 1) * $step
+  .m-#{$value}
+    margin: #{$value}px
+  .m-t-#{$value}
+    margin-top: #{$value}px
+  .m-r-#{$value}
+    margin-right: #{$value}px
+  .m-b-#{$value}
+    margin-bottom: #{$value}px
+  .m-l-#{$value}
+    margin-left: #{$value}px
+  .p-#{$value}
+    padding: #{$value}px
+  .p-t-#{$value}
+    padding-top: #{$value}px
+  .p-r-#{$value}
+    padding-right: #{$value}px
+  .p-b-#{$value}
+    padding-bottom: #{$value}px
+  .p-l-#{$value}
+    padding-left: #{$value}px
+
+//create .bg-{color} and .text-{color} classes
+@include backgroundAndTextColor('black', $black)
+@include backgroundAndTextColor('dark-blue', $dark-blue)
+@include backgroundAndTextColor('medium-dark-blue', $medium-dark-blue )
+@include backgroundAndTextColor('medium-blue', $medium-blue)
+@include backgroundAndTextColor('medium-light-blue', $medium-light-blue)
+@include backgroundAndTextColor('light-blue', $light-blue)
+@include backgroundAndTextColor('teal', $teal)
+@include backgroundAndTextColor('red', $red)
+@include backgroundAndTextColor('white', $white)

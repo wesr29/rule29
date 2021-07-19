@@ -1,0 +1,75 @@
+.side-by-side-content-image
+  padding: 70px 0
+  position: relative
+  @include mobile
+    padding: 30px 0
+  .wrapper
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    background-color: $dark-blue
+  &--content
+    // background-color: $dark-blue
+    color: white
+    font-size: rem(18)
+    padding: 50px
+    width: 40.5%
+    @include mobile
+      padding: 29px 26px
+      width: 100%
+      order: 2
+    h2,
+    h3,
+    h4,
+    h5
+      color: $white
+    a:not(.button)
+      color: inherit !important
+    .button
+      margin-top: 30px
+  &--image
+    width: 59.5%
+    @include mobile
+      width: 100%
+      order: 1
+    &.fullbleed
+    picture,
+    img
+      display: block
+      height: 100%
+      width: 100%
+
+  //full bleed image
+  &--fullbleed
+    .side-by-side-content-image--image
+      position: absolute
+      top: 0
+      left: 51%
+      height: 100%
+      @include mobile
+        position: static
+        width: 100%
+      img
+        height: 100%
+        width: 100%
+
+  //image on left
+  &--image-position-left
+    .side-by-side-content-image--image
+      order: 1
+      @include mobile
+        order: 1
+    .side-by-side-content-image--content
+      order: 2
+      @include mobile
+        margin-bottom: 0
+        order: 2
+
+  //both fullbleed and image left are a bit different
+  &--fullbleed.side-by-side-content-image--image-position-left
+    .side-by-side-content-image--image
+      left: 0
+    .side-by-side-content-image--content
+      margin-left: 52%
+      @include mobile
+        margin-left: 0

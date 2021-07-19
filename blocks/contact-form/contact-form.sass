@@ -1,0 +1,127 @@
+#contact-form
+  position: relative
+.contact-form
+  padding: 52px 0
+  position: relative
+  &--background-image
+    @extend %fill-parent
+    z-index: 1
+  .wrapper
+    width: 580px
+    position: relative
+    z-index: 2
+  &--title
+    font-size: 41px
+    line-height: 1.3
+    max-width: 500px
+    margin-left: auto
+    margin-right: auto
+    font-weight: 500
+    @include mobile
+      font-size: rem(28)
+  &--subtitle
+    font-size: rem(31)
+    font-weight: 500
+    @include mobile
+      font-size: rem(22)
+  &--copy
+    width: 600px
+    margin: 19px auto 87px
+    line-height: 1.4
+    font-size: rem(18)
+  .izi-input--radios
+    display: flex
+    justify-content: space-around
+    flex-wrap: wrap
+    font-size: rem(18)
+    margin-top: -1em //children have margin when flexing
+  .izi-input--radio--container
+    margin-top: 1em //have margin when flexing
+    display: flex
+    align-items: center
+    margin-right: 2em
+    @include mobile
+      width: 100%
+    input
+      appearance: none
+      width: 33px
+      height: 33px
+      border: 2px solid white
+      border-radius: 50%
+      margin: 0 24px 0 0
+      display: flex
+      &:before
+          content: ''
+          background: darkblue
+          width: 0
+          height: 0
+          background: $white
+          display: block
+          border-radius: 50%
+          margin: auto  
+          transition: 250ms ease-out    
+      &:checked:before
+        width: 60%
+        height: 60%
+  .izi-input select
+    width: 780px
+    max-width: 100%
+    color: $dark-blue
+    font-weight: bold
+    border-radius: 7px
+    padding: 16px 40px 16px 14px
+    background: white
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAaCAYAAADfcP5FAAAAAXNSR0IArs4c6QAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAJKADAAQAAAABAAAAGgAAAAAX18chAAAB9UlEQVRIDc1VS0oDQRCtngh+UMkHBINERBATwQOIe72BbgJZimtv4Clyg3gDdS26dxHdqDCL6CYfBMWFpq03SWfGyXTPTL4WhK6urnrv0Z3hiapdrwiiI/oHIYkuxEuzmfx6/6mSEKtT1STl69xyomBtpFItFlOaqhiQswZosZDnc5lrXsrIpxTlrgbiv08najW50Pqu3wsSm6o2iVWSfErOZHazWfEJPueGkKAgLFHktI39hKINTiUGnD1B2OTXMnck6Rz5RIK5HE4PWe/JVE1KKR7txg0/5p6qjWWVdLudS+8LIfhrd+PPDaGMhgQlivy2H27baDNgg8MvBix9glDcWk8+W2SdIR9HABscQdh9T+ZterDrl7w/8NZGkF/xJ36owwm8IdXcnpstSUlNtR92BRYwTThGQTsri2/8pzo1AcQ6YywH0zBkFIS5Qi5dgekZMCIdAQNYYc2hggAwv2SdEJtfGJj2nGcdDG2DexBJ0NAG3DVOl1afRRKE8SEMuGecehnuifGzd9s6WVwD9hunHy9oH/mGMBzTgPuMM0iAvxZLEIYjG3CAcfrJg/axnkwBhBqwxjjVvGmNfUMAMxmwyThNQtTZQIIwrDNgk3EqUtM60JN5AX0GbDRO75wuH/iGFKAy4CjGqWbGvlbtxjF+oyD6BVD6o8mz3ZnJAAAAAElFTkSuQmCC') 
+    background-repeat: no-repeat
+    background-position: calc(100% - 10px) 50%
+    background-size: 17px
+  .izi-input
+    text-align: left
+    margin-bottom: 28px
+    display: block
+    &--label
+      display: block
+      margin-bottom: 13px
+    input,
+    textarea
+      width: 100%
+      border-radius: 6px
+      padding: 15px 13px
+      font-family: $font-main
+    input[type="file"]
+      background: $white
+      color: $dark-blue
+    button
+      @extend .button
+      width: 280px
+      display: block
+      margin: 0 auto
+  &--fill-textarea
+    display: flex
+    flex-flow: column
+    textarea
+      flex: 1
+  .izi-input--error
+    margin-top: -0.5em
+    background: #F9423A
+    display: block
+    padding: 1.5em 1em 1em
+    border-radius: 6px    
+  &--progress-bar
+    height: 1em
+    width: 780px
+    border-radius: 1em
+    overflow: hidden
+    margin: 0 auto
+    max-width: 100%
+
+//vue transitions
+.slide-enter-active, 
+.slide-leave-active
+  transition: 450ms
+.slide-enter
+  transform: translateX(100px)
+  opacity: 0
+.slide-leave-to
+  transform: translateX(-100px)
+  opacity: 0

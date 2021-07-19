@@ -1,0 +1,45 @@
+// the stuff below here is standard boilerplate stuff
+// you can remove it if you want... but you probably shouldn't unless you are doing something special
+.main-menu
+  @include mobile
+    // display: none
+    position: absolute
+    z-index: 99
+  .menu-item
+    display: inline-block
+    //position: relative
+    @include mobile
+      display: block
+  .sub-menu
+    display: none
+    position: absolute
+    top: 100%
+    //min-width: 100%
+    z-index: 99
+    left: 0
+    &.push-left
+      left: unset
+      right: 0
+    @include mobile
+      position: relative
+    .sub-menu
+      left: 100%
+      top: 0
+      @include mobile
+        left: 0
+      &.push-left
+        left: unset
+        right: 100%
+
+//this animates menu items on mobile
+.main-menu .menu-item
+  transition: 250ms ease-out
+  // @include mobile
+  //   opacity: 0
+  //   transform: translateX(80px)
+  // @for $i from 1 through 12
+  //   &:nth-of-type(#{$i})
+  //     transition-delay: #{$i * 50}ms
+.main-menu.open .menu-item
+  opacity: 1
+  transform: none

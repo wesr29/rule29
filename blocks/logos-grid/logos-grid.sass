@@ -1,0 +1,21 @@
+.logos-grid
+  &--title
+    position: relative
+    &:after
+      content: ''
+      position: absolute
+      top: calc(100% + 21px)
+      display: block
+      width: 80px
+      height: 2px
+      background: $medium-blue
+      left: 50%
+      transform: translateX(-50%)
+  .row
+    margin-top: -1em
+  .col
+    margin-top: 1em
+    picture
+      display: block
+    img
+      object-fit: contain

@@ -1,0 +1,185 @@
+.contact-page-form
+  &--section
+    p
+      font-size: rem(18)
+  &--step
+    padding: 39px 0
+  &--title
+    color: $dark-blue
+    font-size: rem(22)
+    font-weight: 700
+    line-height: 1.09
+    margin-left: auto
+    margin-right: auto
+    text-align: center
+  &--subtitle
+    font-size: rem(18)
+    font-weight: 500
+  &--copy
+    width: 600px
+    margin: 19px auto 87px
+    line-height: 1.4
+    font-size: rem(18)
+  .izi-input--radios
+    display: flex
+    justify-content: space-around
+    flex-wrap: wrap
+    font-size: rem(18)
+    margin-top: -1em //children have margin when flexing
+  .izi-input--radio--container
+    margin-top: 1em //have margin when flexing
+    display: flex
+    align-items: center
+    margin-right: 2em
+    @include mobile
+      width: 100%
+    input
+      appearance: none
+      width: 33px
+      height: 33px
+      border: 2px solid white
+      border-radius: 50%
+      margin: 0 24px 0 0
+      display: flex
+      &:before
+          content: ''
+          background: darkblue
+          width: 0
+          height: 0
+          background: $white
+          display: block
+          border-radius: 50%
+          margin: auto  
+          transition: 250ms ease-out    
+      &:checked:before
+        width: 60%
+        height: 60%
+  .izi-input
+    display: block
+    width: 100%
+    &:not(.text-left)
+      text-align: center
+    select
+      background-image: url(../../public/images/arrow-down.png)
+      background-repeat: no-repeat
+      background-size: 18px
+      background-position: 96%
+      border-color: $medium-blue
+      border-radius: 7px
+      max-width: 100%
+      color: $dark-blue
+      font-family: $font-main
+      font-size: rem(18)
+      font-weight: bold
+      padding: 16px 40px 16px 14px
+      width: 580px
+  .checkboxes
+    display: block
+    margin: 0 auto
+    max-width: 100%
+    width: 1134px
+    .izi-input--label
+      font-size: 18px
+      font-weight: 400 !important
+      margin-top: 20px
+      margin-bottom: -30px !important
+      text-align: center !important
+  .izi-input--checkboxes
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: space-between
+    margin-top: 9px
+  .izi-input--checkbox
+    &--container
+      margin-top: 30px
+      min-width: 200px
+      width: 20.5%
+      input
+        @extend .hidden
+        &:checked ~ .izi-input--checkbox--label:after
+          display: block
+    &--label
+      display: flex
+      align-items: center
+      font-size: rem(18)
+      position: relative
+      &:before
+        background: white
+        border: 2px solid $medium-blue
+        content: ''
+        cursor: pointer
+        height: 36px
+        margin-right: 21px
+        width: 36px
+      &:after
+        content: ""
+        position: absolute
+        display: none
+        left: 14px
+        top: 6px
+        width: 8px
+        height: 15px
+        border: solid $dark-blue
+        border-width: 0 7px 8px 0
+        transform: rotate(45deg)
+      
+  .izi-input
+    margin-bottom: 29px
+    &--label
+      color: $dark-blue
+      display: block
+      font-weight: 500
+      margin-bottom: 13px
+    input,
+    textarea
+      border-color: $medium-blue
+      border-radius: 6px
+      color: $dark-blue
+      width: 100%
+      padding: 15px 13px
+      font-family: $font-main
+      &::placeholder
+        color: $medium-blue
+    input[type="file"]
+      background: $white
+      color: $dark-blue
+    /*input[aria-invalid="true"]
+      border-color: $red
+      &::placeholder
+        color: $red*/
+  &--fill-textarea
+    display: flex
+    flex-flow: column
+    textarea
+      flex: 1
+  .izi-input--error
+    background: $light-red
+    border: 1px solid $red
+    border-radius: 6px
+    color: $dark-blue
+    display: block
+    font-size: rem(18)
+    font-weight: 500
+    margin: 1em auto
+    max-width: 100%
+    padding: 1em
+    width: 580px
+  &--progress-bar
+    height: 1em
+    width: 780px
+    border-radius: 1em
+    overflow: hidden
+    margin: 0 auto
+    max-width: 100%
+
+//vue transitions
+.slide-enter-active, 
+.slide-leave-active
+  transition: 450ms
+.slide-enter
+  transform: translateX(100px)
+  opacity: 0
+.slide-leave-to
+  transform: translateX(-100px)
+  opacity: 0

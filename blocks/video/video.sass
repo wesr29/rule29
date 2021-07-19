@@ -1,0 +1,65 @@
+// TODO: add default styles
+.video
+  padding: 70px 0
+  @include mobile
+    padding: 30px 0
+  .wrapper
+    height: 660px
+    @include medium
+      height: 500px
+    @include mobile
+      height: 450px
+    @include phone
+      height: 300px
+    &.open
+      .video--image-overlay,
+      .video--play-button,
+      .click-target,
+      .morph-icon
+        opacity: 0 !important //override EVERYTHING!
+        pointer-events: none !important //override EVERYTHING!
+        z-index: 0
+  &--image-overlay
+    position: relative
+    height: 100%
+    display: block
+    width: 100%
+    z-index: 2
+  &--iframe
+    width: 100%
+    height: 660px
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 1
+    @include medium
+      height: 500px
+    @include mobile
+      height: 450px
+    @include phone
+      height: 300px
+  &--play-button
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    z-index: 3
+    .morph-icon--circle
+      opacity: 0.6
+  .play-btn
+    color: white
+    cursor: pointer
+    width: 130px
+    @include mobile
+      width: 100px
+    @include phone
+      width: 80px
+  .click-target
+    cursor: pointer
+    height: 100%
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    opacity: 0
+    z-index: 4

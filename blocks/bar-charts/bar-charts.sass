@@ -1,0 +1,42 @@
+.bar-charts
+  margin: 50px 0
+  padding: 83px 0
+  @include mobile
+    margin: 30px 0
+    padding: 50px 0
+  &.custom-padding
+    margin: 0
+  // .wrapper
+  //   width: 1088px
+  *
+    color: $dark-blue
+  &--col
+    &--title
+      font-size: rem(22)
+      line-height: 1.09
+      margin-bottom: 10px
+  table
+    width: 100%
+  td
+    vertical-align: middle
+    padding-bottom: 15px
+  &--dataset
+    // display: flex
+    // align-items: center
+    // margin-bottom: 15px
+    &:nth-of-type(odd)
+      .bar-charts--dataset--bar
+        background-color: $medium-blue
+    &:nth-of-type(even)
+      .bar-charts--dataset--bar
+        background-color: $bluegreen
+    &--title
+      font-family: $font-main
+      font-size: rem(18)
+      line-height: 1.5
+      // width: 40px
+    &--bar
+      height: 45px
+      margin-left: 23px
+      width: 1px
+      transition: 1250ms ease-out

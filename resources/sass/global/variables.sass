@@ -1,0 +1,53 @@
+// @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap');
+
+//global stuff
+$wrapper-width : 1180px
+$medium-switch: 1024px
+$mobile-switch : 768px
+$phone-switch : 580px
+
+//fonts - coming from typekit
+$font-main : itc-officina-sans-pro,sans-serif
+$font-accent : latienne-pro,serif
+
+//colors
+$black              : #333
+$dark-blue          : #002E5D
+$medium-dark-blue   : #466C92
+$medium-blue        : #9BB8D3
+$medium-light-blue  : #D7E2ED
+$light-blue         : #F1F5F9
+$sky-blue           : #14ACD9
+$purple             : #5B334B
+$teal               : #15B5AD
+$green              : #307411
+$bluegreen          : #00C389
+$aqua               : #2AD2C9
+$yellow             : #F2A900
+$red                : #F9423A
+$light-red          : #FFD2D0
+$white              : #fff
+
+//create .bg-{color} and .text-{color} classes
+@include backgroundAndTextColor('black', $black)
+@include backgroundAndTextColor('dark-blue', $dark-blue)
+@include backgroundAndTextColor('medium-dark-blue', $medium-dark-blue)
+@include backgroundAndTextColor('medium-blue', $medium-blue)
+@include backgroundAndTextColor('medium-light-blue', $medium-light-blue)
+@include backgroundAndTextColor('light-blue', $light-blue)
+@include backgroundAndTextColor('sky-blue', $sky-blue)
+@include backgroundAndTextColor('purple', $purple)
+@include backgroundAndTextColor('teal', $teal)
+@include backgroundAndTextColor('green', $green)
+@include backgroundAndTextColor('yellow', $yellow)
+@include backgroundAndTextColor('red', $red)
+@include backgroundAndTextColor('white', $white)
+
+//global theme colors
+$color-main   : $dark-blue
+$color-accent : $medium-blue
+
+//kinda specific theme colors
+$text-color   : $black
+$link-color   : $dark-blue
+$mobile-menu-button-color: $black

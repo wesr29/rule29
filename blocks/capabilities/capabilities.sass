@@ -1,0 +1,85 @@
+.capability
+  display: flex
+  justify-content: space-between
+  margin-bottom: 60px
+  @include mobile
+    flex-flow: column
+    margin-bottom: 40px
+  &:nth-of-type(odd)
+    color: white
+    @include desktop-only
+      background-color: $dark-blue
+    a,
+    h2
+      color: white
+    .capability--content
+      @include mobile
+        background-color: $dark-blue
+    .morph-icon--circle
+      background: $medium-dark-blue
+  &:nth-of-type(even)
+    @include desktop-only
+      background-color: $light-blue
+    h1,h2,h3,h4,h5,h6, a
+      color: $dark-blue
+    .capability--content
+      @include mobile
+        background-color: $light-blue
+    .morph-icon
+      color: $dark-blue
+  &--content
+    padding: 50px 50px 40px
+    width: calc(100% - 500px)
+    @include mobile
+      padding: 30px
+      width: 100%
+      order: 2
+    a
+      font-size: rem(18)
+      &:hover,
+      &:focus
+        color: $medium-blue
+    svg
+      width: 69px
+      @include mobile
+        width: 48px
+    .morph-icon
+      margin-bottom: 20px
+      @include mobile
+        margin-bottom: 10px
+      // &--circle
+      //   opacity: 0.5
+    .editor-content
+      font-size: rem(18)
+      max-width: 100%
+      width: 570px
+      @include mobile
+        width: 100%
+      h2
+        font-size: rem(30)
+  &--links
+    margin-top: 16px
+    &.flex
+      .capability--link
+        width: 50%
+        @include phone
+          width: 100%
+  &--link
+    margin-top: 16px
+  &--image
+    max-width: 50%
+    overflow: hidden
+    width: 500px
+    @include mobile
+      height: 200px
+      max-width: 100%
+      width: 100%
+      order: 1
+    @include phone
+      height: 150px
+    picture
+      display: block
+      height: 100%
+    img
+      height: 130%
+      width: 100%

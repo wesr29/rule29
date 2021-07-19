@@ -1,0 +1,98 @@
+.image-blocks
+  padding: 70px 0
+  @include mobile
+    padding: 40px 0 0
+  .row
+    @include colGap(20)
+    margin-top: -20px
+    & > * 
+      margin-top: 20px
+  &--inner
+    position: relative
+    padding-top: 100%
+  &--image
+    @extend %fill-parent
+  &--caption
+    font-size: rem(18)
+    padding: 28px
+    position: absolute
+    background: var(--color)
+    @include mobile
+      position: relative
+      margin: 0 auto
+      top: unset          
+      left: 0
+      right: 0
+      bottom: 50px
+      width: 87%
+    *
+      color: inherit
+    &.bottom
+      margin: 0 auto
+      left: 0
+      right: 0
+      width: 87%
+      @include desktop-only
+        bottom: -27px
+    &.left,
+    &.right
+      @include desktop-only
+        min-width: 240px
+        top: 29px
+        width: 40%
+    &.left
+      @include desktop-only
+        left: -22px
+    &.right
+      @include desktop-only
+        right: -22px
+
+  // &--block
+  //   margin-top: 20px
+  //   &.has-caption
+  //     @include mobile
+  //       margin-bottom: -20px
+  //   &--caption
+  //     font-size: rem(18)
+  //     padding: 28px
+  //     position: absolute
+  //     background: var(--color)
+  //     @include mobile
+  //       position: relative
+  //       margin: 0 auto
+  //       top: unset          
+  //       left: 0
+  //       right: 0
+  //       bottom: 50px
+  //       width: 87%
+  //     *
+  //       color: inherit
+  //     &.bottom
+  //       margin: 0 auto
+  //       left: 0
+  //       right: 0
+  //       width: 87%
+  //       @include desktop-only
+  //         bottom: -27px
+  //     &.left,
+  //     &.right
+  //       @include desktop-only
+  //         min-width: 240px
+  //         top: 29px
+  //         width: 40%
+  //     &.left
+  //       @include desktop-only
+  //         left: -22px
+  //     &.right
+  //       @include desktop-only
+  //         right: -22px
+  //   &.col-sm-6
+  //     .image-blocks--block--image
+  //       @include desktop-only
+  //         height: 580px
+  //   picture
+  //     display: block
+  //   &--image
+  //     width: 100%
+  //     @include mobile
+  //       height: 300px

@@ -1,0 +1,21 @@
+.error404
+  &--content
+    color: $dark-blue
+    position: relative
+    .wrapper
+      width: 730px
+    .editor-content
+      position: relative
+      z-index: 2
+      font-size: rem(26)
+      font-weight: 500
+      padding: 269px 0 111px
+      @include mobile
+        padding: 171px 0 90px
+      @include phone
+        padding: 130px 0 61px
+      .button
+        margin-top: 30px    
+  &--video
+    position: absolute
+    z-index: 1

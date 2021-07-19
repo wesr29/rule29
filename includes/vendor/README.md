@@ -1,0 +1,1 @@
+- 'rosell-dk/webp-convert' is for converting jpg/png to webp images

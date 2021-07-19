@@ -1,0 +1,53 @@
+.content-capabilities
+  padding-top: 76px
+  position: relative
+  z-index: 2
+  @include mobile
+    padding-top: 0
+    margin-top: 30px
+  > .wrapper
+    display: flex
+    flex-direction: row-reverse
+    justify-content: space-between
+    align-items: flex-start
+    @include mobile
+      display: block
+  .content-block
+    margin: 0
+    width: calc(100% - 300px)
+    @include mobile
+      width: 100%
+    .wrapper
+      margin: 0
+      max-width: 100%
+  &--capabilities
+    margin-top: -140px
+    padding: 32px 30px 25px
+    max-width: 100%
+    width: 280px
+    @include mobile
+      margin: 0 auto 30px
+      width: 100%
+    *
+      color: white
+    &--title
+      font-size: rem(22)
+      font-weight: 700
+      line-height: 1.09
+      margin-bottom: 37px
+      position: relative
+      &:after 
+        background: white
+        content: ''
+        display: block
+        height: 2px
+        position: absolute
+        top: calc(100% + 16px)
+        width: 59px
+    li, p
+      // font-family: $font-accent
+      font-size: rem(13)
+      // font-weight: 600
+      list-style: none
+      line-height: 1.86
+      margin-top: 5px

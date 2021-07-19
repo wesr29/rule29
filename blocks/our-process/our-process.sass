@@ -1,0 +1,291 @@
+.our-process
+  margin: 140px 0 100px
+  @include screenQuery(1024)
+    margin-top: 80px
+  .wrapper
+    position: relative
+  &--pie
+    @include screenQuery(1024)
+      display: none
+  &--mobile
+    display: none
+    @include screenQuery(1024)
+      display: block
+  &--bottom-content
+    margin-top: 129px
+    @include screenQuery(1024)
+      margin-top: 80px
+    .row
+      margin-top: -2em
+    .col
+      margin-top: 2em
+    .editor-content
+      margin-top: 7px
+    p
+      font-size: rem(18)
+
+  //mobile/modal stuff
+  .izi-modal-backdrop
+    background: rgba($dark-blue, 0.9) !important //override inline JS stuff
+  .our-process--modal--slider-control--next,
+  .our-process--modal--slider-control--prev
+    background: transparent
+    border: 0
+    appearance: none
+    font-family: $font-main
+    font-size: 18px
+  .our-process--modal--slider-control--next svg
+    margin-left: 10px
+  .our-process--modal--slider-control--prev svg
+    display: inline-block
+    transform: rotate(180deg)
+    margin-right: 10px
+  &--modal
+    display: none
+    max-width: 80%
+    width: 100%
+    margin: 10vh auto
+    .izi-slider--slider
+      background: $white
+    &--slide
+      background: $white
+      & .our-process--modal--subtitle,
+      & .our-process--modal--content,
+        opacity: 0
+        transition: 450ms
+      &[aria-hidden="false"] .our-process--modal--subtitle,
+      &[aria-hidden="false"] .our-process--modal--content,
+        opacity: 1
+    &--title
+      padding: 20px 23px
+      font-size: rem(20)
+      position: relative
+      font-weight: 600
+    &--close
+      position: absolute
+      right: 20px
+      top: 50%
+      transform: translateY(-50%)
+      cursor: pointer
+      svg
+        pointer-events: none
+    &--subtitle
+      padding: 20px 20px
+      span
+        font-family: $font-accent
+        font-weight: 600
+        font-size: rem(24)
+    &--number
+      border-radius: 50%
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 34px
+      height: 34px
+      font-weight: 600
+      margin-right: 13px
+    &--content
+      padding: 0 20px 31px
+
+
+
+
+
+//border stuff
+.pie--border
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+.pie--outer-text
+  position: absolute
+  height: 119%
+  top: 50%
+  left: 50%
+  z-index: 4
+  pointer-events: none
+  &--1
+    transform: translate(-50%, -50%) rotate(60deg)
+  &--2
+    transform: translate(-50%, -50%) rotate(180deg)
+    span
+      display: inline-block
+      transform: rotate(180deg)
+  &--3
+    transform: translate(-50%, -50%) rotate(300deg)
+
+//inner pie content and stuff 
+.pie--content-container
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  height: 285px
+  width: 255px
+  overflow: hidden
+  z-index: 3
+.pie--inner
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  opacity: 0
+  pointer-events: none
+  transition: 500ms
+  transform: translateY(-200px)
+  &.active
+    opacity: 1
+    pointer-events: auto
+    transform: translateY(0)
+  &.leaving
+    transform: translateY(200px)
+  &--badge
+    display: inline-block
+    border-radius: 4px
+    padding: 3px 15px
+  &--content
+    line-height: 1.45
+    font-size: rem(14px)
+
+
+.pie--pagination
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+  appearance: none
+  background: transparent
+  border: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  font-family: $font-main
+  font-size: rem(18)
+  font-weight: 500
+  &--prev
+    left: 0
+    svg
+      transform: rotate(180deg)
+      margin-right: 14px
+  &--next
+    right: 0
+    svg
+      margin-left: 14px
+
+//circular pie stuff
+$size  : 640
+$steps : 12
+$degrees : 360 / $steps
+
+.pie--container
+  height: $size + px
+  width: $size + px
+  position: relative
+  // overflow: hidden
+  margin: 0 auto 4em
+  &:before
+    content: ''
+    display: block
+    width: $size / 1.7 + px
+    height: $size / 1.7 + px
+    background: white
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    z-index: 2
+    border-radius: 50%
+
+
+.pie--number
+  color: #fff
+  position: absolute
+  top: 50%
+  left: 50%
+  height: 109%
+  z-index: 99
+  display: block
+  color: $dark-blue
+  pointer-events: none
+  transition: 250ms
+  border: 4px solid transparent
+  &.active .pie--number--inner
+    border: 4px solid $white
+  @for $i from 1 through $steps
+    &:nth-of-type(#{$i})
+      transform: translate(-50%, -50%) rotate($degrees * ($i - 1) + ($degrees / 2) + deg)
+      .pie--number--inner
+        transform: rotate(($degrees * ($i - 1) + ($degrees / 2)) * -1 + deg)
+        @if $i <= 4
+          background: $medium-blue
+        @else if $i <= 8
+          background: $teal
+        @else
+          background: $yellow
+  &--inner
+    width: 52px
+    height: 52px
+    border-radius: 50%
+    font-size: rem(21)
+    font-weight: 500
+    border-radius: 50%
+
+.pie--slice 
+  position: absolute
+  width: $size + px
+  height: $size + px
+  border-radius: 100%
+  clip: rect(0px, $size + px, $size + px, $size / 2 + px)
+  pointer-events: none
+  &.active 
+    .pie--slice--inner
+      pointer-events: none
+    .pie--slice--content
+      color: $dark-blue
+
+  &--inner
+    transition: 250ms
+    position: absolute
+    width: $size + px
+    height: $size + px
+    border-radius: 100%
+    cursor: pointer
+    //subtract 1 to leave a 1 px gap between slices
+    clip: rect(0px, $size / 2 - 1 + px, $size + px, 0px)
+    background: $dark-blue
+    pointer-events: auto
+    &:hover .pie--slice--content
+      color: $dark-blue
+
+  &--content
+    position: relative
+    z-index: 999
+    color: $white
+    position: absolute
+    top: 10%
+    left: 30%
+    width: 20%
+    pointer-events: none
+    text-align: center
+    transition: 250ms
+
+@for $i from 1 through $steps
+  $rotation : ($i - 1) * $degrees
+  .pie--slice-#{$i}
+    transform: rotate($rotation + deg)
+    .pie--slice--inner
+      transform: rotate(30deg)
+    &.active .pie--slice--inner,
+    & .pie--slice--inner:hover
+      @if $i <= 4
+        background: $medium-blue
+      @else if $i <= 8
+        background: $teal
+      @else
+        background: $yellow
+    .pie--slice--content
+      transform: rotate(-$rotation - $degrees + deg)
+
+//adding a special case if needed
+.pie--slice-10 .pie--slice--content
+  padding-left: 20px

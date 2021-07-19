@@ -1,0 +1,146 @@
+*
+  box-sizing: border-box
+
+::selection
+  background: $medium-blue
+  color: $white
+
+html
+  -webkit-text-size-adjust: 100%
+  overflow-x: hidden
+
+body
+  font-family: $font-main
+  color: $text-color
+  //make the footer sticky
+  min-height: 100vh
+  display: flex
+  flex-flow: column
+  & > footer
+    margin-top: auto
+
+a
+  color: $dark-blue
+  transition: color 250ms ease-out
+  &:hover
+    color: $medium-dark-blue
+
+h1,
+.h1
+  font-size: rem(50)
+  line-height: 1.12
+  font-weight: 700
+  font-family: $font-accent
+  opacity: 0
+  .cover
+    display: inline-flex
+    overflow: hidden
+    span
+      display: inline-flex
+      transition: 650ms ease-in-out
+      transform: translateY(-100%)
+  &.visible 
+    opacity: 1
+    .cover span
+      transform: translateY(0)
+
+h2,
+.h2
+  font-size: rem(31)
+  // line-height: 1.666
+  line-height: 1.12
+  font-weight: 600  
+  font-family: $font-accent
+  @include mobile
+    font-size: rem(24)
+  
+h3,
+.h3
+  font-size: rem(30)
+  line-height: 1.12
+  font-weight: 500
+  font-family: $font-accent
+  @include mobile
+    font-size: rem(20)
+
+h4,
+.h4
+  font-size: rem(24)
+  font-weight: 700  
+  line-height: 1.2
+  @include mobile
+    font-size: rem(18)
+
+h5,
+.h5
+  font-size: rem(18)
+  font-weight: 700
+  @include mobile
+    font-size: rem(16)
+
+hr
+  box-sizing: content-box 
+  height: 0 
+  overflow: visible
+
+// picture
+//   display: inline-flex
+
+img
+  max-width: 100%
+  height: auto
+  object-fit: cover
+  // &.lazy
+  //   opacity: 1
+  // &.lazyloading
+  //   opacity: 0
+  //   transition: opacity 250ms ease-in
+  // &.lazyloaded
+  //   opacity: 1
+
+i,
+em
+  font-style: italic
+
+b,
+strong
+  font-weight: bold
+
+code,
+pre
+  font-family: monospace, monospace 
+  font-size: 1em
+
+small
+  font-size: 80%
+
+blockquote
+  font-size: 2rem
+
+sub,
+sup
+  font-size: 75%
+  line-height: 0
+  position: relative
+  vertical-align: baseline
+
+sub
+  bottom: -0.25em
+
+sup
+  top: -0.5em
+
+//base input styles here
+input[type='text'],
+input[type='email'],
+input[type='number'],
+input[type='password'],
+input[type='search'],
+input[type='tel'],
+input[type='url'],
+select,
+textarea
+  font-size: 1em
+  appearance: none
+  padding: 0.5em 1em
+  border: 1px solid

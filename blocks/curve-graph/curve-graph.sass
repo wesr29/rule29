@@ -1,0 +1,94 @@
+$min-width: 600px
+
+.curve-graph
+  margin: 75px 0
+  .wrapper
+    overflow: hidden
+    padding: 55px 50px
+    @include mobile
+      padding: 25px 30px
+  &--scroller
+    overflow: auto
+  &--container
+    padding-left: 87px
+    padding-top: 20px
+    min-width: $min-width
+    overflow: hidden
+    @include medium
+      margin-top: 20px
+      padding-left: 14px
+    // @include mobile
+    //   overflow-x: scroll
+  &--y-main-label
+    color: $dark-blue
+    font-size: rem(12)
+    position: absolute
+    transform: translateY(-50%) rotate(-90deg)
+    left: -62px
+    white-space: nowrap
+    top: 50%
+    @include screenQuery(1024)
+      left: -47px
+  &--graph
+    // background: pink
+    height: 261px
+    position: relative
+    canvas
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      mask-image: linear-gradient(rgba(0, 0, 0, 1.0), transparent)
+      pointer-events: none
+  &--y-axis
+    position: absolute
+    left: 0
+    height: 100%
+    display: flex
+    justify-content: space-between
+    flex-flow: column
+    @include screenQuery(1024)
+      left: 20px
+  &--y-label
+    position: relative
+    color: $medium-dark-blue
+    font-size: rem(12)
+    span
+      position: absolute
+      right: 0
+      top: 50%
+      transform: translateY(-50%)
+    &:after
+      content: ''
+      position: absolute
+      top: 50%
+      left: 20px
+      border-bottom: 1px solid $medium-blue
+      max-width: 600px //552px
+      width: 100vw
+      @include screenQuery(1024)
+        max-width: none
+        min-width: $min-width
+        max-width: none
+      // @include desktop-only
+      //   max-width: 552px
+      @include mobile
+        width: 75vw
+  &--entry
+    position: relative
+    margin-left: 30px
+  &--point
+    background: transparent
+    width: 1px
+    height: 1px
+    position: absolute
+  &--x-axis
+    color: $medium-dark-blue
+    text-transform: uppercase
+    margin-top: 10px
+  &--x-label
+    font-size: rem(12)
+    text-transform: uppercase
+    &:first-of-type
+      margin-left: 30px

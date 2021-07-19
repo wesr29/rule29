@@ -1,0 +1,113 @@
+.line-graph
+  margin: 75px 0
+
+  .wrapper
+    overflow: hidden
+    position: relative    
+    & > .editor-content
+      padding: 0 50px
+      @include mobile
+        padding: 0
+      h2
+        @include mobile
+          line-height: 1.167
+  .line-graph--wrapper
+    &:before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background: linear-gradient(to right, white 0px, rgba(white, 0.0001) 50px, rgba(white, 0.0001) calc(100% - 50px), white 100%)
+      z-index: 998
+      pointer-events: none
+  &--scroller
+    overflow: auto
+    position: relative
+
+  &--container
+    min-width: 800px
+    overflow: hidden
+    @include medium
+      margin-top: 20px
+  &--graph
+    height: 331px
+    align-items: flex-end
+    position: relative
+    padding-top: 67px
+    canvas
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+  &--entry
+    position: relative
+    display: flex
+    align-items: flex-end
+    height: 100%
+    z-index: 99
+    &:before
+      content: ''
+      height: 100%
+      border-right: 1px solid $medium-blue
+      position: absolute
+      top: 0
+      left: 50%
+      transform: translateX(-50%)
+  &--point
+    border: 3px solid
+    background: white
+    border-radius: 50%
+    width: 18px
+    height: 18px
+    z-index: 19
+    position: absolute
+    left: 50%
+    transform: translate(-50%, 0) //translate(-50%, -100%)
+    &:hover
+      z-index: 99
+      .line-graph--point--popup
+        opacity: 1
+    &--popup
+      position: absolute
+      color: $white
+      opacity: 0
+      pointer-events: none
+      text-align: center
+      white-space: nowrap
+      font-size: 17px
+      padding: 7px 21px
+      border-radius: 5px
+      bottom: calc(100% + 20px)
+      left: 50%
+      transform: translateX(-50%)
+      transition: 250ms
+      &:before
+        content: ''
+        display: block
+        border-top: 10px solid
+        border-left: 6px solid transparent !important //override below
+        border-right: 6px solid transparent !important //override below
+        position: absolute
+        top: 100%
+        left: 50%
+        transform: translateX(-50%)
+  &--p1
+    border-color: $medium-dark-blue
+    .line-graph--point--popup
+      background: $medium-dark-blue
+      &:before
+        border-color: $medium-dark-blue
+  &--p2
+    border-color: $bluegreen
+    .line-graph--point--popup
+      background: $bluegreen
+      &:before
+        border-color: $bluegreen
+  &--x-label
+    color: $medium-blue
+    font-size: rem(12)
+    position: relative
+    padding-top: 10px

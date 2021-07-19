@@ -1,0 +1,54 @@
+.client-divider
+  padding: 70px 0
+  @include mobile
+    padding: 30px 0
+  &--inner
+    position: relative
+    background: var(--color)
+    @include mobile
+      background-color: none !important
+  .wrapper
+    display: flex
+    justify-content: space-between
+    align-items: center
+    flex-wrap: wrap
+    @include mobile
+      max-width: 100%
+      flex-flow: column
+  &--content
+    color: white
+    padding: 38px 0
+    width: 41%
+    a,
+    h1,
+    h2,
+    h3,
+    h4
+      color: white !important
+    @include mobile
+      padding: 38px 20px
+      width: 100%
+      order: 2
+    .editor-content
+      font-size: rem(18)
+      max-width: 100%
+      width: 380px
+      @include mobile
+        width: 100%
+  &--image
+    height: 100%
+    position: absolute
+    top: 0
+    left: 43%
+    width: 58%
+    @include mobile
+      height: 160px
+      position: static
+      width: 100%
+      order: 1
+    picture
+      display: block
+      height: 100%
+    img
+      height: 100%
+      width: 100%

@@ -1,0 +1,151 @@
+@keyframes post-search-rotate 
+  0% 
+    transform: translate(-50%, -50%) rotate(0deg)
+  100% 
+   
+    transform: translate(-50%, -50%) rotate(360deg)
+.category-listing
+  padding: 1em 0
+  @include mobile
+    flex-wrap: wrap
+  .category-list
+    select,
+    .postform
+      width: 100%
+    &.tags
+      margin-right: 20px
+      @include phone
+        margin-right: 0
+  &--title
+    color: $dark-blue
+    font-size: rem(22)
+    margin-right: 50px
+    padding-top: 23px
+    @include mobile
+      padding-top: 0
+      width: 100%
+
+.post-listing
+  &--form
+    background-color: $medium-light-blue
+  .category-list
+    max-width: 380px
+    padding: 3em 0
+    position: relative
+    width: 48%
+    @include phone
+      width: 100%
+    h3
+      letter-spacing: 0
+    h6
+      position: absolute
+      top: 6px
+      font-size: 16px
+      font-weight: 500
+    .izi-select--container
+      position: absolute
+      top: 2em
+      width: 100%
+  &--loading
+    height: 100vh
+    width: 100vw
+    position: fixed
+    z-index: 999
+    top: 0
+    left: 0
+    background: rgba(black, 0.35)
+    &:after 
+      content: ''
+      display: block
+      width: 46px
+      height: 46px
+      border-radius: 50%
+      border: 2px solid #fff
+      border-color: #fff transparent #fff transparent
+      position: absolute
+      top: 50%
+      left: 50%
+      animation: post-search-rotate 1.2s linear infinite
+
+  &--post
+    list-style: none
+    margin: 60px 0
+    &:last-of-type
+      border-bottom: 0
+    .row
+      @include colGap(60)
+    .content-editor
+      padding-right: 100px
+      @include mobile
+        padding-right: 0
+    &--title
+      color: $dark-blue
+      font-size: rem(26)
+      line-height: 1.2
+      margin-top: 14px
+    &--image.col
+      max-width: 540px
+      @include mobile
+        margin-bottom: 20px
+    &--category
+      background-color: $dark-blue
+      display: inline-block
+    &--byline
+      color: $dark-blue
+      font-size: rem(21)
+      margin-bottom: 14px
+      margin-top: 14px
+      line-height: 1!important
+    &--by
+      // font-family: $font-accent
+      font-style: italic
+    &--author
+      font-weight: 400
+      text-decoration: underline
+    &--read-more
+      display: block
+      font-size: rem(16)
+      font-weight: 400
+      margin-top: rem(12)
+    &--excerpt
+      font-size: rem(18)
+      margin-top: 0
+    .editor-content
+      padding-right: 20px
+      @include mobile
+        padding-right: 0
+  &--link
+    text-decoration: none
+  &--featured-image,
+  .attachment-post-thumbnail
+    box-shadow: 2px 2px 8px 2px #80808059
+    height: 300px
+    max-width: 100%
+    width: 480px
+  &--pagination
+    padding: 2.5em 1em
+    text-align: center
+    .page-numbers--current
+      background: $dark-blue
+      border-radius: 50%
+      color: white !important
+      font-size: 12px
+      font-weight: 700
+      margin-right: 2px
+      padding: 7px 12px
+    a.page-numbers
+      color: white
+      font-size: 12px
+      font-weight: 700
+      margin-right: 4px
+      padding: 7px 12px
+      text-decoration: none
+      &:hover
+        text-decoration: underline
+  .show-more--wrapper
+    margin: 70px auto
+    @include mobile
+      margin: 40px auto
+    .button
+      display: block
+      width: 100%

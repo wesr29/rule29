@@ -1,0 +1,81 @@
+$aspect_ratio : calc(916 / 2000 * 100%)
+
+.gallery-slider
+  padding: 70px 0
+  @include mobile
+    padding: 30px 0
+  &--slide
+    position: relative
+    padding-top: $aspect_ratio
+    picture, img
+      @extend %fill-parent
+  &--wrapper
+    margin-bottom: 60px
+    max-width: calc(100% - 110px)
+    @include mobile
+      margin-bottom: 12px
+    .izi-slider
+      &--container
+        position: relative
+      &--pagination
+        display: none
+
+  .gallery-slider--wrapper
+    .izi-slider
+      &--controls
+        @include iziControls
+        top: 46%
+        width: calc(100% + 100px) //96%
+        left: 50%
+        transform: translatex(-50%)
+        @include mobile
+          width: calc(100% + 73px)
+
+.pagination-slider
+  &--wrapper
+    position: relative
+    padding: 0 70px
+    @include mobile
+      padding: 0 35px
+    .izi-slider
+      &--controls
+        @include iziControls
+        left: 0
+        top: 50%
+        width: 100%
+        transform: translateY(-50%)
+        display: flex
+        justify-content: space-between
+        pointer-events: none
+    .izi-slider--controls--prev,
+    .izi-slider--controls--next
+      position: relative !important
+      top: unset !important
+      left: unset !important
+      bottom: unset !important
+      pointer-events: auto
+  &--slide
+    &.active .pagination-slider--slide--inner
+      border: 2px solid $medium-blue
+    &--inner
+      position: relative
+      border: 2px solid white
+      padding: 5px
+      position: relative
+      padding-top: $aspect_ratio
+      picture
+        width: 100%
+        height: 100%
+      img
+        @extend %fill-parent      
+    picture
+      @extend %fill-parent
+      max-height: calc(100% - 10px)
+      max-width: calc(100% - 10px)
+      top: 5px
+      left: 5px
+  &--photo
+    height: 100%
+    min-height: 115px
+    @include mobile
+      min-height: 0

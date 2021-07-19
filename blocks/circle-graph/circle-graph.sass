@@ -1,0 +1,82 @@
+.circle-graph
+  margin: 100px 0 50px
+  .wrapper
+    padding: 55px 50px
+    @include mobile
+      padding: 25px 30px
+  &--outer
+    overflow: hidden
+    height: 240px
+    width: 480px
+    border-bottom: 1px solid
+    margin: 35px 50px 0 auto
+    position: relative
+    padding: 28px
+    @include medium
+      margin-right: auto
+    @include screenQuery(600)
+      width: 300px
+      height: 150px
+    @include screenQuery(430)
+      width: 261px
+      height: 144px
+    &:before
+      content: ''
+      display: block
+      position: absolute 
+      top: 100%
+      left: 50%
+      border-radius: 50%
+      transform: translate(-50%, -50%)        
+      border: 1px solid
+      width: 99.5%
+      height: 199%
+  &--inner
+    position: absolute
+    top: 100%
+    left: 50%
+    border-radius: 50%
+    transform: translate(-50%, -50%)
+    background: $medium-dark-blue
+    &:nth-of-type(1)
+      width: calc(100% - 56px)
+      height: calc(200% - 56px)
+      z-index: 1
+      .circle-graph--year
+        left: 13%
+      .circle-graph--data-point
+        background: $medium-dark-blue
+    &:nth-of-type(2)
+      background: radial-gradient(transparent, $bluegreen 80%)      
+      z-index: 2
+      .circle-graph--data-point
+        background: $bluegreen
+  &--year
+    color: $white
+    position: absolute
+    font-size: rem(24)
+    font-weight: 500
+    top: calc(50% - 9px)
+    transform: translate(-50%, -100%)
+    left: 50%
+    @include screenQuery(600)
+      font-size: 1rem
+  &--data-point
+    position: absolute
+    border: 4px solid $white
+    top: 3px
+    left: 50%
+    color: $white
+    border-radius: 50%
+    width: 70px
+    height: 70px
+    display: flex
+    justify-content: center
+    align-items: center
+    transform: translate(-50%, -50%)
+    font-size: rem(26)
+    @include screenQuery(600)
+      border-width: 2px
+      width: 50px
+      height: 50px
+      font-size: 1rem

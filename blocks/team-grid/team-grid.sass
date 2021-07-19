@@ -1,0 +1,79 @@
+.team-members
+  padding: 80px 0
+  .row
+    @include colGap(20)
+    margin-top: -20px
+  &--apply-box
+    margin-top: 20px
+    &--inner
+      display: flex
+      align-items: center
+      justify-content: center
+      height: 460px
+      padding: 20px
+    &--title
+      font-size: rem(26)
+      font-weight: 500
+    &--content
+      font-size: rem(18)
+    .button
+      margin-top: 20px
+    .morph-icon
+      height: 80px
+      border-radius: 50%
+      width: 80px
+      svg
+        width: 100%
+      &--container
+        margin: 0 auto 25px
+      &--circle
+        background: $medium-dark-blue
+
+.team-member
+  display: block
+  height: 460px
+  margin-top: 20px
+  max-width: 383px
+  overflow: hidden
+  @include mobile
+    margin: 20px auto 0
+  &:hover
+    .team-member--photo
+      opacity: 1
+    .team-member--content
+      opacity: 0
+  video
+    height: 100%
+    min-width: 100%
+    position: absolute
+    top: 0
+    left: 0
+    width: auto
+    z-index: 2
+  picture
+    display: block
+    height: 100%
+  &--photo
+    height: 100%
+    position: relative
+    width: 100%
+    z-index: 3
+    opacity: 0
+    transition: 250ms
+    &.no-video
+      opacity: 1
+  &--content
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(255,255,255,0) 100%)
+    padding: 27px 20px
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    width: 100%
+    z-index: 4
+    transition: 250ms    
+  &--name
+    font-size: rem(26)
+    font-weight: 500
+  &--title
+    font-size: rem(18)
